@@ -213,13 +213,15 @@ def load_device(cfg):
     :param config:
     :return:
     '''
+    '''
     if cfg.config['device']['use_gpu'] and torch.cuda.is_available():
         cfg.log_string('GPU mode is on.')
         cfg.log_string('GPU Ids: %s used.' % (cfg.config['device']['gpu_ids']))
         return torch.device("cuda")
     else:
-        cfg.log_string('CPU mode is on.')
-        return torch.device("cpu")
+     '''
+    cfg.log_string('CPU mode is on.')
+    return torch.device("cpu")
 
 def load_model(cfg, device):
     '''
